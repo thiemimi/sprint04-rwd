@@ -88,6 +88,7 @@ main{
         .TextoHome {
             justify-content: center;
             text-align: justify;
+            line-height: 50px;
         
             & h2{
             font-size: 60px;
@@ -224,7 +225,7 @@ main{
     box-sizing: border-box;
 
     .Contato1{
-        width: 70%;
+        width: 60%;
         height: 80vh;
         display: flex;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
@@ -244,7 +245,7 @@ main{
             .TituloContato{
                 width: 100%;
                 color: #01A1FD;
-                font-size: 20px;
+                font-size: 16px;
                 text-align: center;
                 line-height: 35px;
                 text-shadow: 1px 1px 1px #000000;
@@ -816,20 +817,28 @@ footer{
     }
     .Contato{
         
-        display:flex;
-        
+        display:flex;     
 
         .TituloContato h1 {
           font-size: 30px;
         }
       
         .Contato1 {
-          height: 90vh;
+        width: 100%;
+        height: 90vh;
         }
     }
+
+
+  }
+  @media screen and (max-width: 1350px){
+    .Cadastrar{
+    height: 120vh;
+
     .CadastrarContainer{
         justify-content: center;
         align-items: center;
+        
 
         .CadastrarCampo1 {
           display: none;
@@ -837,14 +846,27 @@ footer{
       
         .CadastrarCampo2 {
           width: 100%;
+
+            .input-box-cadastrar{
+                display: flex;
+                margin-bottom: 1.8rem; 
+        
+                input, select{
+                    width: 150px;
+                    margin: 0.1rem 0;
+                    margin-right: 15px;
+                    padding: 0.8rem 1.2rem;
+                    border: 1px solid rgb(97, 97, 97);
+                    border-radius: 20px;
+                    box-shadow: 6px 5px 6px #0000001c;
+                }
+            }
         }
+    
     }
   
-
-  
+    }
   }
-
-  
 
     @media screen and (max-width:768px){
         // ==============================================
@@ -855,7 +877,7 @@ footer{
             margin:100px auto;
             width: 100%;
             flex-direction: column;
-            min-height: 220vh;
+            min-height: 190vh;
 
             .SobreNosCampo1 p, .SobreNosCampo2 p{
               font-size: 17px;
@@ -892,15 +914,25 @@ footer{
         }
         // =========================================
 
-        .CadastrarContainer{
-            width: 90%;
+        .Cadastrar{
+            justify-content: center;
+            align-items: center;
+            height: 180vh;
 
-            .form-input-cadastrar{
-                flex-direction: column;
-                flex-wrap: nowrap;
-    
+            .CadastrarContainer {
+                width: 90%;
+                
+
+                .CadastrarTitulo{
+                    display: flex;
+                    text-align: center;
+                    color:#8AB3CF;
+                    font-size: 16px;
+                    line-height: 1;
+                    text-shadow: 1px 1px 1px black;
+                }
             }
-        }
+        } 
         
     } 
   
