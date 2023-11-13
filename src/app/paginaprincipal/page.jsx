@@ -1,7 +1,13 @@
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
 
-export default function PaginaPrincipal(){
+export default function PaginaPrincipal({ params }){
+
+    const idCli = params.id == 0 ? '' : params.id
+
+    console.log(idCli);
 
     return(
         <div className="PaginaPrincipal">

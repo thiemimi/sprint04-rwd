@@ -1,7 +1,43 @@
+"use client"
+
+
 import Link from "next/link";
+import { useEffect, useState } from "react"
 
-export default function Bicicleta(){
+export default function Bicicleta({params}){
 
+    const idCli = params.id == 0 ? '' : params.id
+
+
+    const [bike, setBike] = useState({
+        marca: '',
+        modelo: '',
+        numeroDeSerie: '',
+        valorNota: '',
+        valorAtual: '',
+        tipoSeguro: '',
+    });
+
+    const handleChange = e => {
+        setBike({ ...bike, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        fetch(`http://localhost:8080/Sprint4/api/bicicleta/cadastrar/${idCli}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(bike)
+        })
+        .then(() => {
+            // window.location = '/vistoria';
+        })
+        .catch(error => console.error(error))
+    }
     return(
         <main className='Bicicleta'>
             <div className="FormBicicleta">

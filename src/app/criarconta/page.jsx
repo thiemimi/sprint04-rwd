@@ -1,7 +1,77 @@
+"use client"
+
 import Link from "next/link";
+import { useState, useRef } from "react"
 
 export default function CriarConta(){
 
+    const numeroRef = useRef(null);
+
+    const [usuario, setUsuario] = useState({
+        nome: '',
+        sobrenome: '',
+        cpf: '',
+        genero: '',
+        dtaNasc: '',
+        cep: '',
+        logradouro: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+        telefone: '',
+        email: '',
+        login: '',
+        senha: '',
+
+    });
+
+
+
+    const handleChange = e => {
+        setUsuario({ ...usuario, [e.target.name]: e.target.value })
+    }
+
+    const buscarCep = (e) => {
+        const cep = e.target.value;
+        fetch(`https://viacep.com.br/ws/${cep}/json`)
+            .then((resp) => resp.json())
+            .then((data) => {
+                setUsuario({
+                    ...usuario,
+                    cep: cep,
+                    logradouro: data.logradouro,
+                    numero: "",
+                    complemento: "",
+                    bairro: data.bairro,
+                    cidade: data.localidade,
+                    estado: data.uf
+                })
+                numeroRef.current.focus();
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar CEP:", error);
+            });
+
+    }
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+    
+        fetch(`http://localhost:8080/Sprint4/api/cliente/criarconta`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(usuario)
+        })
+        .then(window.location = '/login')
+        .catch(error => console.error(error))  
+    }
+    
     return(
         <div className='Cadastrar'>
             
