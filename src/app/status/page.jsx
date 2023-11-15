@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Status({params}){
 
@@ -43,7 +44,7 @@ export default function Status({params}){
         <main>
             <div className="Status">
                 <p>Para verificar o status da vistoria, é necessário acessar informações externas, como a aprovação ou não do seguro.</p>
-                <Link  href= '/paginaprincipal'>Voltar</Link>
+                <Link  href= '/'>Voltar</Link>
             </div>
         </main>
     )

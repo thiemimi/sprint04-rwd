@@ -1,6 +1,39 @@
+"use client"
 import Link from "next/link";
+import { useState } from "react";
 
-export default function Instrucoes(){
+export default function Instrucao({params}){
+
+    const [imagem, setImagem] = useState(null);
+  
+    const idB = params.id == 0 ? '' : params.id   
+  
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        const formData = new FormData();
+        formData.append('imagem', imagem);
+    
+       
+        try {
+            const response = await fetch(`http://localhost:8080/Sprint4/api/vistoria/processar-imagem/${idB}`, {
+                method: 'POST',
+                body: formData,
+            });
+    
+            const result = await response.json();
+    
+            console.log(result);
+            window.location = `/aprovado`;
+        } catch (error) {
+            console.error('Erro ao enviar a imagem:', error);
+        }
+    };
+  
+      const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        setImagem(file);
+      };
 
     return(
         <div className="Instrucoes">
@@ -15,10 +48,20 @@ export default function Instrucoes(){
             <p>7. Tire fotos das informações de identificação. Capture o número de série da bicicleta, que geralmente está localizado no quadro, próximo ao pedivela ou sob o tubo do selim.</p>
             <p>8. Se houver acessórios importantes, como um ciclocomputador ou bagageiro, fotografe-os separadamente para uma documentação mais completa.</p>
             <p>9. O prazo para tirar as fotos é de 5 dias.</p>
-            
+            <form>
+                <div className="input-box-instrucoes">
+                  <label htmlFor="imagem">Enviar Imagem</label>
+                  <input
+                    id="imagem"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                </div>
+            </form>
             <div className='BotoesBii'>
-                <Link href= '/paginaprincipal' className='botaoinstrucoes'>Voltar</Link>
-                <Link href= '/bicicleta' className='botaoinstrucoes'>Próximo</Link>
+                <Link href= '/' className='botaoinstrucoes'>Voltar</Link>
+                <Link href= '/aprovado' className='botaoinstrucoes'>Próximo</Link>
             </div>
         </div>
     )
