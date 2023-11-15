@@ -75,7 +75,7 @@ const handleSubmit = (e) => {
                     </div>
 
                     <div className='TextoBaixo'>
-                        <p>Ainda não possui conta?</p> 
+                        <p>Ainda não possui uma conta?</p> 
                         <Link href='/criarconta'>Criar conta</Link>
                     </div>
                 </div>
