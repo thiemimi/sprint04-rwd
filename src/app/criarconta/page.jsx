@@ -1,9 +1,11 @@
 "use client"
 
-import Link from "next/link";
+import Link from "next/link"
 import { useState, useRef } from "react"
 
-export default function CriarConta(){
+
+
+export default function criarConta() {
 
     const numeroRef = useRef(null);
 
@@ -74,12 +76,12 @@ export default function CriarConta(){
             .catch(error => console.error(error))}     
         
     }
-    
-    return(
-        <div className='Cadastrar'>
 
-            <div className='CadastrarContainer'>
 
+    return (
+        <div className="Cadastrar">
+
+            <div className="CadastrarContainer">
                 <div className='CadastrarCampo1'>
                     <div className='CadastrarTexto'>
                         <h1>Seja</h1>
@@ -92,7 +94,6 @@ export default function CriarConta(){
                             <h1>CRIAR CONTA</h1>
                         </div>
                         <div className="form-input-cadastrar">
-
                             <div className="input-box-cadastrar">
                                 <label htmlFor="name">Nome</label>
                                 <input type="text" name='nome' value={usuario.nome}
@@ -167,15 +168,11 @@ export default function CriarConta(){
                                 <input type="text" name='cidade' value={usuario.cidade}
                                     placeholder="Cidade" onChange={handleChange} required />
                             </div>
-
                             <div className="input-box-cadastrar">
                                 <label htmlFor="estado">Estado</label>
                                 <input type="text" name='estado' value={usuario.estado}
                                     placeholder="Estado" onChange={handleChange} required />
                             </div>
-
-
-
                             <div className="input-box-cadastrar">
                                 <label htmlFor="email">Email</label>
                                 <input id="email" type="email" name="email" value={usuario.email} placeholder="Digite seu email" onChange={handleChange} required />
@@ -195,22 +192,16 @@ export default function CriarConta(){
                                 <label htmlFor="senha">Senha</label>
                                 <input id="senha" type="password" name="senha" value={usuario.senha} placeholder="Digite sua senha" onChange={handleChange} required />
                             </div>
-
-                        </div>
-
-                        <button type="submit" className='botao-Cadastrar'>Criar conta</button>
+                            <Link href={'/'}  className='botao-Cancelar'>Cancelar</Link>
+                            <button type="submit"  className='botao-Cadastrar'>Criar conta</button>
+                        </div>     
                     </form>
-                    <div>
-                        <Link href='/' className='botao-Cadastrar'>Cancelar</Link>
-                    </div>
-
                     <div className='TextoBaixo'>
                         <p>Já possui uma conta?</p>
                         <Link href='/login'>Faça login</Link>
                     </div>
                 </div>
+                
 
-            </div>
-        </div>
     )
 }
