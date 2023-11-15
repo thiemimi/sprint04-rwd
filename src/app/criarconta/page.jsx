@@ -60,11 +60,10 @@ export default function criarConta() {
 
 
     const handleSubmit = e => {
-        if (usuario.genero === ''){
-            alert("Por favor, escolha seu tipo de seguro antes de enviar.")
-            e.preventDefault();
-        }else{        
-            fetch(`http://localhost:8080/Sprint4/api/cliente/criarconta`, {
+        
+        e.preventDefault();
+
+        fetch(`http://localhost:8080/Sprint4/api/cliente/criarconta`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -73,8 +72,7 @@ export default function criarConta() {
             body: JSON.stringify(usuario)
         })
             .then(window.location = '/login')
-            .catch(error => console.error(error))}     
-        
+            .catch(error => console.error(error))
     }
 
 
@@ -117,7 +115,7 @@ export default function criarConta() {
                             <div className="input-box-cadastrar">
                                 <label htmlFor="genero">Gênero</label>
                                 <select name="genero" className="tamanho" onChange={handleChange} required value={usuario.genero}>
-                                    <option value="">Escolha seu gênero</option>
+                                    <option value="nd">Escolha seu gênero</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Feminino</option>
                                     <option value="NB">Não-binário</option>
@@ -193,7 +191,7 @@ export default function criarConta() {
                                 <input id="senha" type="password" name="senha" value={usuario.senha} placeholder="Digite sua senha" onChange={handleChange} required />
                             </div>
                             <Link href={'/'}  className='botao-Cancelar'>Cancelar</Link>
-                            <button type="submit"  className='botao-Cadastrar'>Criar conta</button>
+                            <button type='submit' className='botao-Cadastrar'>Criar conta</button>
                         </div>     
                     </form>
                     <div className='TextoBaixo'>
