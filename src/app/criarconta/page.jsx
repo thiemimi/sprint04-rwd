@@ -201,7 +201,8 @@ export default function criarConta() {
                         <Link href='/login'>Faça login</Link>
                     </div>
                 </div>
-                
+                </div>
+                </div>
 
     )
 }
