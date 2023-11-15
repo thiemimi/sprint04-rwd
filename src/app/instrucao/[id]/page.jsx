@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Vistoria({params}){
+export default function Instrucao({params}){
 
     const [imagem, setImagem] = useState(null);
   
