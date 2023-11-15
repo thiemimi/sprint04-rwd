@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 
 export default function Bicicleta({params}){
@@ -15,8 +15,7 @@ export default function Bicicleta({params}){
         numeroDeSerie: '',
         valorNota: '',
         valorAtual: '',
-        tipoSeguro: '',
-        id:''
+        tipoSeguro: ''
     });
 
     const handleChange = e => {
@@ -24,8 +23,11 @@ export default function Bicicleta({params}){
     }
 
     const handleSubmit = e => {
+        if (bike.tipoSeguro === ''){
+            alert("Por favor, escolha seu tipo de seguro antes de enviar.")
+            e.preventDefault();
         e.preventDefault();
-
+    }else{
         fetch(`http://localhost:8080/Sprint4/api/bicicleta/cadastrar/${idCli}`, {
             method: 'POST',
             headers: {
@@ -34,15 +36,22 @@ export default function Bicicleta({params}){
             },
             body: JSON.stringify(bike)
         })
+        .then(response => {
+            if (response.ok) {
+                return response.json(); 
+            } else {
+                console.error('Erro no cadastro da bicicleta:', response.status);
+                throw new Error('Erro no cadastro da bicicleta');
+            }
+        })
         .then(data => {
-            console.log('Dados do cliente:', data.idBike);
-            setUsuario(b => ({
-                ...bike,
-                id: data.idBike
-            }));
-            window.location = `/vistoria/${data.idBike}`;
+            console.log('ID da bicicleta:', data);
+            window.location = `/vistoria/${data}`
         })
         .catch(error => console.error(error))
+
+    }
+atch(error => console.error(error))
     }
 
     return(
@@ -92,7 +101,7 @@ export default function Bicicleta({params}){
                     </div>
 
                     <div className="BotoesBi">
-                        <button onClick={handleSubmit}>Finalizar Cadastro</button>
+                        <button onClick={handleSubmit}>Cadastrar</button>
 
                     </div>
                             

@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-export default function DadosPessoais(){
+export default function DadosPessoais(){   
 
     return(
         <main className="DadosPessoais">
             
             <div className='ContainerDadosPessoais'>
-            <Link href= '/paginaprincipal' className ='botaoVoltar'>Voltar</Link>
+            <Link href= '/' className ='botaoVoltar'>Voltar</Link>
                 <h1>DADOS PESSOAIS</h1>
                 <div className="input-box-DadosPessoais">
                     <p>Nome</p>
