@@ -110,7 +110,7 @@ atch(error => console.error(error))
             </div>
             <div className="BotoesBi">
                 
-                    <Link href= '/instrucoes' className='botao-Instrucoes'>Voltar</Link>
+                    <Link href= {`/paginaprincipal/${idCli}`} className='botao-Instrucoes'>Voltar</Link>
  
                 
             </div>
