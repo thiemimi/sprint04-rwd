@@ -368,6 +368,7 @@ main{
                 .input-box-cadastrar{
                     display: flex;
                     flex-direction: column;
+                    margin-top:0.3rem;
               
                     & input, select{
                         width: 300px;
@@ -390,7 +391,7 @@ main{
                 text-align: center;
                 font-size:15px;
                 width: 30vh;
-                margin-top: 0.3rem;
+                margin-top: 1.7rem;
                 margin-right: 0.6rem;;
                 border: none;
                 text-decoration: none;
@@ -404,7 +405,7 @@ main{
             .botao-Cancelar{
                 text-align: center;
                 width: 30vh;
-                margin-top: 0.3rem;
+                margin-top: 1.8rem;
                 margin-right: 0.6rem;;
                 border: none;
                 text-decoration: none;
