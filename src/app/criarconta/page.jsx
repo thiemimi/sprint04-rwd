@@ -1,9 +1,11 @@
 "use client"
 
-import Link from "next/link";
+import Link from "next/link"
 import { useState, useRef } from "react"
 
-export default function CriarConta(){
+
+
+export default function criarConta() {
 
     const numeroRef = useRef(null);
 
@@ -72,11 +74,11 @@ export default function CriarConta(){
         .catch(error => console.error(error))  
     }
     
-    return(
-        <div className='Cadastrar'>
-            
-            <div className='CadastrarContainer'>
-                
+
+    return (
+        <div className="Cadastrar">
+
+            <div className="CadastrarContainer">
                 <div className='CadastrarCampo1'>
                     <div className='CadastrarTexto'>
                         <h1>Seja</h1>
@@ -84,71 +86,85 @@ export default function CriarConta(){
                     </div>
                 </div>
                 <div className='CadastrarCampo2'>
-                    <form action="#">   
+                    <form onSubmit={handleSubmit}>
                         <div className='CadastrarTitulo'>
                             <h1>CRIAR CONTA</h1>
                         </div>
                         <div className="form-input-cadastrar">
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="name">Nome</label>
-                                <input id="name" type="text" name="name" placeholder="Digite seu nome" required/>
+                            <div className="input-box-cadastrar">   
+                                <input type="text" name='nome' value={usuario.nome}
+                                placeholder="Nome" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="cep">Cep</label>
-                                <input id="cep" type="text" name="cep" placeholder="Digite seu CEP" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='sobrenome' value={usuario.sobrenome}
+                                placeholder="Sobrenome" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="cpf">CPF</label>
-                                <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='cpf' value={usuario.cpf}
+                                placeholder="CPF" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label for="genero">Gênero</label>
-                                <select name="genero" class="tamanho">
-                                    <option value="">Escolha seu gênero</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Feminino</option>
-                                    <option value="NB">Não-binário</option>
-                                    <option value="NR">Prefiro não dizer</option>
-                                </select>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='genero' value={usuario.genero}
+                                placeholder="Genero" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="email">Email</label>
-                                <input id="email" type="email" name="email" placeholder="Digite seu email" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input type="date" name='dtaNasc' value={usuario.dtaNasc}
+                                placeholder="Data de Nascimento" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="telefone">Telefone</label>
-                                <input id="telefone" type="tel" name="telefone" placeholder="Digite seu telefone" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='cep' value={usuario.cep}
+                                placeholder="CEP" onChange={handleChange} onBlur={buscarCep} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="Senha">Senha</label>
-                                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='logradouro' value={usuario.logradouro}
+                                placeholder="Logradouro" onChange={handleChange} /> <br />
                             </div>
-
-                            <div className="input-box-cadastrar">
-                                <label htmlFor="Senha">Confirme sua senha</label>
-                                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required/>
+                            <div className="input-box-cadastrar"> 
+                                <input ref={numeroRef} type="text" name='numero' value={usuario.numero}
+                                placeholder="Numero" onChange={handleChange} /> <br />
                             </div>
-
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='complemento' value={usuario.complemento}
+                                placeholder="Complemento" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='bairro' value={usuario.bairro}
+                                placeholder="Bairro" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='cidade' value={usuario.cidade}
+                                placeholder="Cidade" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='estado' value={usuario.estado}
+                                placeholder="Estado" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='telefone' value={usuario.telefone}
+                                placeholder="Telefone" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='email' value={usuario.email}
+                                placeholder="Email" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='login' value={usuario.login}
+                                placeholder="Login" onChange={handleChange} /> <br />
+                            </div>
+                            <div className="input-box-cadastrar"> 
+                                <input type="text" name='senha' value={usuario.senha}
+                                placeholder="Senha" onChange={handleChange} /> <br />
+                            </div>
+                            <Link href={'/'}  className='botao-Cancelar'>Cancelar</Link>
+                            <button type="submit"  className='botao-Cadastrar'>Criar conta</button>
                         </div>
-                            
                     </form>
-                    <div>
-                        <Link href= '/paginaprincipal'  className='botao-Cadastrar'>Criar conta</Link>
-                    </div>
-
+                
                     <div className='TextoBaixo'>
                         <p>Já possui uma conta?</p> 
                         <Link href='/login'>Faça login</Link>
                     </div>
                 </div>
-            
             </div>
         </div>
     )
