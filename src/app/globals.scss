@@ -446,7 +446,7 @@ main{
 
 .DadosPessoais {
     width: 100%;
-    min-height: 130vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -454,7 +454,7 @@ main{
     align-items: center;
 
     .ContainerDadosPessoais {
-        width: 80%;
+        width: 100%;
         padding: 2rem;
         margin: 0.3rem;
         display: flex;
@@ -463,26 +463,58 @@ main{
     
         & h1{
             color: #4180AB;
-            font-size: 60px;
-    
+            font-size: 60px;    
         }
     
-        & label{
-            width: 100%;
-            margin: 0.8rem 0;
-            padding: 0.8rem 1.2rem;
-            border: 1px solid rgb(97, 97, 97);
-            border-radius: 20px;
-            box-shadow: 6px 5px 6px rgba(0, 0, 0, 0.1); 
-            background-color: #ffffff;
+        .form-input-alterar{
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color:#4180AB;
-            
-        }
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 1.9rem 0;
+ 
+            & label{
+                color: #8AB3CF;
+                margin: 10px;
+            }
 
-        .botaoVoltar{
+        .input-box-alterar{
+
+                display: flex;
+                flex-direction: column;
+
+            & input, select{
+                    width: 300px;
+                    margin: 0.6rem 2;
+                    margin-right: 10px;
+                    padding: 0.8rem 1.2rem;
+                    border: 1px solid rgb(97, 97, 97);
+                    border-radius: 20px;
+                    box-shadow: 6px 5px 6px #0000001c;
+                }
+            
+            & input:hover{
+                    background-color: #eeeeee75;
+                
+                }
+          
+
+            }
+        }
+    .Botao-Alterar{
+            text-align: center;
+            font-size:15px;
+            width: 30vh;
+            margin-top: 0.3rem;
+            margin-right: 0.6rem;;
+            border: none;
+            text-decoration: none;
+            color: #FFFFFF;
+            border-radius: 20px;
+            background-color: #4180ab;
+            padding: 0.7rem;
+            cursor: pointer;
+        } 
+    .botaoVoltar{
             text-align: right;
             padding: 10px;
             background-color: #E4EBF0;
