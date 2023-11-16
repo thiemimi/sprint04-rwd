@@ -15,7 +15,7 @@ export default function PaginaPrincipal({ params }){
                 <Image src={'/bicicleta2.png'} alt='bicicleta' width={800} height={700}/>
             </div>
             <div className="Campo2">
-                <Link href= '/dadospessoais' className='botao-pp'>Dados Pessoais</Link>
+                <Link href= '/dadospessoais/[id]' as={`/dadospessoais/${idCli}`} className='botao-pp'>Dados Pessoais</Link>
                 <Link href= '/bicicleta/cadastrar/[id]' as={`/bicicleta/cadastrar/${idCli}`}className='botao-pp'>Fazer Seguro</Link>
                 <Link href= '/status' className='botao-pp'>Consultar Status da Vistoria</Link>
             </div>
