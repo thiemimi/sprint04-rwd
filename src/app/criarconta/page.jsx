@@ -143,7 +143,6 @@ export default function criarConta() {
 
                             <div className="input-box-cadastrar">
                                 <label htmlFor="numero">Número</label>
-
                                 <input ref={numeroRef} type="text" name='numero' value={usuario.numero}
                                     placeholder="Numero" onChange={handleChange} required />
                             </div>
