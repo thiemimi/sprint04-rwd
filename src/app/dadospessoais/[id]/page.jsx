@@ -85,7 +85,7 @@ export default function DadosPessoais({ params }) {
         <main className="DadosPessoais">
 
             <div className='ContainerDadosPessoais'>
-                <Link href='/' className='botaoVoltar'>Voltar</Link>
+                <Link href='/paginaprincipal/[id]' as={`/paginaprincipal/${idCli}`} className='botaoVoltar'>Voltar</Link>
                 <h1>DADOS PESSOAIS</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-input-alterar">
